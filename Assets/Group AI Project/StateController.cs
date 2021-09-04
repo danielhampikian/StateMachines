@@ -70,6 +70,21 @@ public class StateController : MonoBehaviour {
             }
         }
     }
+    public bool CheckAttackRange(string tag)
+    {
+        if (enemies != null)
+        {
+            foreach (GameObject g in enemies)
+            {
+                if (Vector3.Distance(g.transform.position, transform.position) < 1f )
+                {
+                    enemyToChase = g;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     public bool CheckIfInRange(string tag)
     {
         enemies = GameObject.FindGameObjectsWithTag(tag);

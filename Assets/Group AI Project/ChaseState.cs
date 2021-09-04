@@ -8,6 +8,10 @@ public class ChaseState : State {
 
     public override void CheckTransitions()
     {
+        if (stateController.CheckAttackRange("Player"))
+        {
+            stateController.SetState(new AttackState(stateController));
+        }
         if (!stateController.CheckIfInRange("Player"))
         {
             stateController.SetState(new WanderState(stateController));

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 using UnityEngine.AI;
 
 public class StateController : MonoBehaviour {
@@ -18,7 +19,7 @@ public class StateController : MonoBehaviour {
     public float detectionRange = 5;
     public GameObject wanderP;
     public GameObject newNavPoint;
-
+    public bool madeContact = false;
 
     void Start()
     {
@@ -56,7 +57,7 @@ public class StateController : MonoBehaviour {
         GameObject go = Instantiate(newNavPoint, pos, Quaternion.identity);
         go.transform.SetParent(navPointsParent.transform);
         navPoints = GameObject.FindGameObjectsWithTag("navpoint");
-        
+
 
     }
 
@@ -101,5 +102,13 @@ public class StateController : MonoBehaviour {
         {
             currentState.OnStateEnter();
         }
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+      if (collision.gameObject.name == "Player")
+      {
+        Debug.Log("hit the player. Trancend!");
+        madeContact = true;
+      }
     }
 }

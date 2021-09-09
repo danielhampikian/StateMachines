@@ -12,6 +12,11 @@ public class ChaseState : State {
         {
             stateController.SetState(new WanderState(stateController));
         }
+        else if (stateController.madeContact) {
+          Debug.Log("set transcend");
+          stateController.SetState(new TranscendState(stateController));
+        }
+
     }
     public override void Act()
     {

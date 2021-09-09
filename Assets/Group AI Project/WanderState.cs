@@ -35,6 +35,7 @@ public class WanderState : State
     {
         timer = 0f;
         timeLimit = 5f;
+        stateController.madeContact = false;
         stateController.destination = stateController.GetWanderPoint();
         if (stateController.ai.agent != null)
         {

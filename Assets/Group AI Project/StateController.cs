@@ -46,6 +46,13 @@ public class StateController : MonoBehaviour {
         GameObject go = Instantiate(wanderP, wanderPoint, Quaternion.identity);
         return go.transform;
     }
+    public Transform GetTranscendPoint()
+    {
+        //This could be done more efficeintly without introducing a empty game object
+        Vector3 transcendPoint = new Vector3(ai.transform.position.x + 10, 20, ai.transform.position.z + 10);
+        GameObject go = Instantiate(wanderP, transcendPoint, Quaternion.identity);
+        return go.transform;
+    }
     public Vector3 GetRandomPoint()
     {
         Vector3 ran = new Vector3(Random.Range(-detectionRange, detectionRange), 1.5f, Random.Range(-detectionRange, detectionRange));

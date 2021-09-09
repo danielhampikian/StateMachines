@@ -24,6 +24,9 @@ public class WanderState : State
     }
     public override void Act()
     {
+      if (stateController.ai.agent.baseOffset >= 0.1f) {
+        stateController.ai.agent.baseOffset -= .1f;
+        }
         timer += Time.deltaTime;
         if (stateController.destination == null || stateController.ai.DestinationReached())
         {

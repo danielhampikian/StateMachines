@@ -5,29 +5,29 @@ using UnityEngine;
 
 public class TranscendState : State {
 
-private bool madeContact = false;
-
     public TranscendState(StateController stateController) : base(stateController) { }
+    private Transform target;
+    private Vector3 targetPoint;
 
     public override void CheckTransitions()
     {
       if (!stateController.CheckIfInRange("Player"))
       {
-        Debug.Log("leave Transcend");
           stateController.SetState(new WanderState(stateController));
       }
     }
 
     public override void Act()
     {
-      stateController.ai.GetComponent<Rigidbody>().useGravity = false;
-      stateController.ai.transform.position += Vector3.up;
+      stateController.ai.agent.baseOffset += .01f;
     }
 
     public override void OnStateEnter()
     {
         stateController.ChangeColor(Color.white);
-        stateController.ai.agent.speed = 0f;
+        //stateController.ai.GetComponent<Rigidbody>().useGravity = false;
+        //stateController.ai.GetComponent<Collider>().enabled = false;
+        stateController.destination = stateController.GetTranscendPoint();
     }
 
 

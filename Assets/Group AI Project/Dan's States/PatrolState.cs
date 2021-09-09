@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PatrolState : State {
 
-
+    
     public PatrolState(StateController stateController) : base(stateController) { }
    
     public override void CheckTransitions()
@@ -12,6 +12,10 @@ public class PatrolState : State {
         if (stateController.CheckIfInRange("Player"))
         {
             stateController.SetState(new ChaseState(stateController));
+        }
+        if (stateController.sleepTimer == 1000)
+        {
+            stateController.SetState(new SleepState(stateController));
         }
         
     }
@@ -25,6 +29,7 @@ public class PatrolState : State {
     }
     public override void OnStateEnter()
     {
+        stateController.sleepTimer = 0;
         stateController.destination = stateController.GetNextNavPoint();
         if (stateController.ai.agent != null)
         {

@@ -18,6 +18,7 @@ public class StateController : MonoBehaviour {
     public float detectionRange = 5;
     public GameObject wanderP;
     public GameObject newNavPoint;
+    public float sleepTimer;
 
 
     void Start()
@@ -30,8 +31,10 @@ public class StateController : MonoBehaviour {
 
     void Update()
     {
+        sleepTimer ++;
         currentState.CheckTransitions();
         currentState.Act();
+
     }
     public Transform GetNextNavPoint()
     {

@@ -20,6 +20,12 @@ public class SImpleStateMachine : MonoBehaviour
         Reproduce, 
         Flee
     }
+    public enum Upgrades
+    {
+        Gun,
+        Armor,
+        Mutate
+    }
 
     public float scoutTimer = 3f;
     public float patrolTimer = 3f;
@@ -41,6 +47,7 @@ public class SImpleStateMachine : MonoBehaviour
     public bool hasReproduced;
     public float scalingFactor = 1.1f;
     public float maxScale = 3f;
+    public Upgrades currentUp;
 
 
     private bool MoveToTarget()
@@ -48,6 +55,9 @@ public class SImpleStateMachine : MonoBehaviour
         Vector3 lookAtGoal = new Vector3(destination.position.x, transform.position.y, destination.position.z); //we don't want to move our characters y axis shifting them up or down
         Vector3 lookDir = lookAtGoal - transform.position;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookDir), Time.deltaTime * rotSpeed);
+        transform.position = Vector3.Lerp(transform.position, lookAtGoal, 2f);
+        
+        
         //this.transform.LookAt(lookAtGoal);
         if (Vector3.Distance(transform.position, lookAtGoal) > accuracy) //here we use look at goal so that we don't get jittering
         {
@@ -86,6 +96,16 @@ public class SImpleStateMachine : MonoBehaviour
         }
         CheckTransitions();
         Act();
+        switch(currentUp)
+            {
+            case (Upgrades.Gun):
+            {
+                //upgrade gun
+                break;
+            }
+        
+        }
+     
     }
     
     void Grow()
@@ -138,7 +158,7 @@ void CheckTransitions()
         
     }
     void Act()
-    {
+    { 
         switch (currentState)
         {
             case State.Reproduce: 

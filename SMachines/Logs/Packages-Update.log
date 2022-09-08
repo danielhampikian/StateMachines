@@ -68,3 +68,13 @@ The following packages were updated:
   com.unity.timeline from version 1.1.0 to 1.4.8
 The following packages were removed:
   com.unity.package-manager-ui@2.2.0
+
+=== Wed Aug 31 13:12:16 2022
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.collab-proxy from version 1.7.1 to 1.17.2
+  com.unity.ide.visualstudio from version 2.0.11 to 2.0.16
+  com.unity.ide.vscode from version 1.2.3 to 1.2.5

@@ -25,5 +25,7 @@ public class ChaseState : State {
     {
         stateController.ChangeColor(Color.red);
         stateController.ai.agent.speed = .5f;
+        stateController.destination = stateController.enemyToChase.transform;
+        stateController.ai.SetTarget(stateController.destination);
     }
 }

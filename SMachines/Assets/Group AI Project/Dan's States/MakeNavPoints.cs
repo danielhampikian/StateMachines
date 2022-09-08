@@ -5,7 +5,7 @@ using UnityEngine;
 public class MakeNavPoints : State {
 
     public MakeNavPoints(StateController stateController) : base(stateController) { }
-    int maxPoints = 0;
+    int maxPoints = 10;
     int numPointsMade = 0;
     public override void CheckTransitions()
     {
@@ -14,7 +14,7 @@ public class MakeNavPoints : State {
         {
             stateController.SetState(new ChaseState(stateController));
         }
-        if (maxPoints < numPointsMade)
+        if (numPointsMade > maxPoints)
         {
             stateController.SetState(new PatrolState(stateController));
         }

@@ -13,6 +13,13 @@ public class PatrolState : State {
         {
             stateController.SetState(new ChaseState(stateController));
         }
+     
+     if (stateController.DoneWithNavPatrol())
+        {
+            GameObject newAI = GameObject.Instantiate(stateController.self);
+            stateController.SetState(new WanderState(stateController));
+        }
+
         
     }
     public override void Act()

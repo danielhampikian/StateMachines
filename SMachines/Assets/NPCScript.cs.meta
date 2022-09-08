@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 9951657d02390ec4cb43b2d4a86f8cb3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - navPointsParent: {fileID: 1609180972353464, guid: 3726c3fd05f4f44428ac6d2fe45939af,
+      type: 3}
+  - enemyToChase: {instanceID: 0}
+  - destination: {instanceID: 0}
+  - ai: {instanceID: 0}
+  - wanderP: {instanceID: 0}
+  - newNavPoint: {instanceID: 0}
+  - obstacles: {instanceID: 0}
+  - self: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

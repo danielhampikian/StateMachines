@@ -9,6 +9,7 @@ public abstract class State {
     public State(StateController stateController)
     {
         this.stateController = stateController;
+        
     }
     public abstract void CheckTransitions();
 

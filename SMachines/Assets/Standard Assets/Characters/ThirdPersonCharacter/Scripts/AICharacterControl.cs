@@ -32,6 +32,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             else
                 character.Move(Vector3.zero, false, false);
         }
+        public void GetWalkableNav()
+        {
+            
+        }
         public bool DestinationReached()
         {
             return agent.remainingDistance < agent.stoppingDistance;
